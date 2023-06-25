@@ -3,7 +3,6 @@ version: "3.8"
 services:
   mysqldb:
     image: mysql:5.7
-    # restart: unless-stopped
     env_file: ./.env
     environment:
       - MYSQL_USER=$MYSQLDB_USER
@@ -31,7 +30,4 @@ services:
       - DB_PASSWORD=$MYSQLDB_PASSWORD
       - DB_NAME=$MYSQLDB_DATABASE
       - DB_PORT=$MYSQLDB_DOCKER_PORT
-    volumes:
-      - .:/myapp
-    command: sh -c "npm install && npm run dev"
 
